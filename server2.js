@@ -17,6 +17,6 @@ server.on('connection', (socket)=>{
     })
 })
 
-server.listen(4000, ()=>{
+server.listen(50000, ()=>{
     console.log('servidor esta escuchando en la puerta', server.address().port)
 })
