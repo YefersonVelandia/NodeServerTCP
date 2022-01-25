@@ -1,22 +1,24 @@
+const { Socket } = require('dgram');
 const net = require('net');
 
-const server = net.createServer()
+const server = net.createServer();
 
-server.on('connection', (socket)=>{
-    socket.on('data', (data)=>{
-        console.log('\nEl cliente ' + socket.remoteAddress + ":" + socket.remotePort + "dice: " + data)
-        socket.write('Recibido!')
+server.on('connection', (Socket)=>{
+    Socket.on('data', (data)=>{
+        console.log(data);
+        Socket.write('Recibido');
     })
 
-    socket.on('close', ()=>{
-        console.log('Comunicación finalizada')
+    Socket.on('close', ()=>{
+        console.log('Comunicacion finalizada');
     })
 
-    socket.on('error', (err)=>{
-        console.log(err.message)
+    Socket.on('error', (err)=>{
+        console.log(err.message);
     })
-})
+} )
 
-server.listen(4000, ()=>{
-    console.log('servidor esta escuchando en la puerta', server.address().port)
+
+server.listen(50000, ()=>{
+    console.log(server.address().port);
 })
